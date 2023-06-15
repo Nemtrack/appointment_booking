@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   templateUrl:'./create-company.component.html',
@@ -14,19 +14,24 @@ import { FormControl, FormGroup } from "@angular/forms";
   `]
 })
 export class CreateCompanyComponent implements OnInit {
-  newCompanyForm!: FormGroup;
-  newCompany: any;
+  newCompanyForm!: FormGroup
+  name!: FormControl
+  businessHours!: FormControl
+  location!: FormControl
   isDirty: boolean = true;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.name = new FormControl('', Validators.required)
+    this.businessHours = new FormControl('', Validators.required)
+    this.location = new FormControl('', Validators.required)
+
     this.newCompanyForm = new FormGroup({
-      name: new FormControl(),
-      businessHours: new FormControl(),
-      address: new FormControl(),
-    });
-    this.newCompany = {};
+      name: this.name,
+      businessHours: this.businessHours,
+      location: this.location,
+    })
   }
 
   saveCompany(formValues: FormControl) {

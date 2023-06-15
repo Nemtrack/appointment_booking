@@ -4,7 +4,8 @@ import {
   CompanyListComponent,
   CreateCompanyComponent,
   CompanyRouteActivator,
-  CompanyListResolver
+  CompanyListResolver,
+  CreateServiceComponent
 }from './companies/index'
 import { Error404Component } from "./errors/404.componet";
 
@@ -15,6 +16,7 @@ export const appRoutes:Routes = [
     { companies: CompanyListResolver} },
   { path: 'companies/:id', component: CompanyDetailsComponent,
     canActivate:[CompanyRouteActivator] },
+  { path: 'companies/services/new', component: CreateServiceComponent},
   { path: '404', component: Error404Component},
   { path: '', redirectTo: '/companies', pathMatch: 'full'},
   {

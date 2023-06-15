@@ -9,7 +9,23 @@
     <div class="col-md-6">
       <div><strong>Name:</strong> {{company?.name}}</div>
       <div><strong>Address:</strong> {{company?.address}}</div>
-      <div><strong>Business Hours:</strong> ${{company?.businessHours}}</div>
+      <div><strong>Business Hours:</strong> {{company?.businessHours}}</div>
     </div>
   </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-2">
+      <h3 style="margin:0">Services</h3>
+    </div>
+
+    <div class="col-md-2">
+      <a (click)="addService()">Add Service</a>
+    </div>
+  </div>
+
+  <service-list *ngIf="!addMode" [services]="company?.services"></service-list>
+  <create-service *ngIf="addMode" (saveNewService)="saveNewService($event)"
+    (cancelAddService)="cancelAddService()"></create-service>
 </div>

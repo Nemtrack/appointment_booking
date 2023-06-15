@@ -8,7 +8,9 @@ import {
   CompanyDetailsComponent,
   CreateCompanyComponent,
   CompanyRouteActivator,
-  CompanyListResolver
+  CompanyListResolver,
+  CreateServiceComponent,
+  ServiceListComponent
 } from './companies/index'
 
 
@@ -28,13 +30,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CompanyThumbnailComponent,
     CompanyDetailsComponent,
     CreateCompanyComponent,
-    Error404Component
+    Error404Component,
+    CreateServiceComponent,
+    ServiceListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     CompanyService,
@@ -42,7 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CompanyRouteActivator,
     { provide: 'canDeactivateCreateCompany', useValue: checkDirtyState },
     CompanyListResolver,
-    AuthService
+    AuthService,
   ],
   bootstrap: [BookingAppComponent]
 })

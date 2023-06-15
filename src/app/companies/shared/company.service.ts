@@ -14,6 +14,10 @@ export class CompanyService{
     return COMPANIES.find(company => company.id === id)
   }
 
+  updateCompany(company:any){
+    let index = COMPANIES.findIndex(x=>x.id = company.id)
+    COMPANIES[index] = company
+  }
 }
 
 const COMPANIES = [
