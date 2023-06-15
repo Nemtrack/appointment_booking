@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a [routerLink]="['/companies']" class = "nav-link" href="#"><img src="../../assets/images/basic-shield.png" class="shield-style" alt="basic-shield"></a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a [routerLink]="['/companies']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}" class="nav-link" href="#">All Companies</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/companies/new']" routerLinkActive="active" class="nav-link" href="#">New Company</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+          <a class="dropdown-item" href="#">Service 1</a>
+          <a class="dropdown-item" href="#">Service 2</a>
+          <a class="dropdown-item" href="#">Service 3</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Appointment Booking</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-header navbar-right nav-link nav-item" href="#">
+    <span *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']" class="navbar-text" style="cursor: pointer;">Login</span>
+    <span *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']" class="navbar-text" style="cursor: pointer;">Welcome {{auth.currentUser?.firstName}}</span>
+  </div>
+</nav>
